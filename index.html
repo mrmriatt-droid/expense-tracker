@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  
+    <h1>Expense Tracker</h1>
+
+<div id="expenseInputArea">
+
+    <input type="text" id="expenseName" placeholder="Expense name">
+    <input type="number" id="expenseAmount" placeholder="Amount">
+    <input type="date" id="expenseDate" lang="en">
+
+    <select id="expenseCategory">
+    <option value="Food">Food</option>
+    <option value="Transport">Transport</option>
+    <option value="Shopping">Shopping</option>
+    <option value="Other">Other</option>
+    </select>
+
+
+    <button id="addButton">Add Expense</button>
+
+</div>
+
+
+<section class="budget-section">
+<h2>Monthly Budget</h2>
+
+<input type="number" id="budgetAmount" placeholder="Enter your monthly budget" lang="en">
+
+<button id="saveBudget">Save Budget</button>
+
+
+<p id="budgetDisplay">Monthly Budget: 0 SAR</p>
+<p id="remainingBudget">Remaining: 0 SAR</p>
+<p id="budgetAlert"></p>
+</section>
+
+
+<select id="filterCategory">
+    <option value="All">All Categories</option>
+    <option value="Food">Food</option>
+    <option value="Transport">Transport</option>
+    <option value="Shopping">Shopping</option>
+    <option value="Other">Other</option>
+</select>
+
+<select id="sortExpenses">
+<option value="default">default order</option>
+<option value="LowtoHigh">Price: Low to High</option>
+<option value="HightoLow">Price: High to Low</option>
+</select>
+
+<select id ="filterPeriod">
+<option value="all">All time</option>
+<option value="today">Today</option>
+<option value="month">This month</option>
+</select>
+
+
+<input type="text" id="searchExpense" placeholder="Search expenses ....">
+<p id="expenseCount"></p>
+<div id="expenseList"></div>
+<p id="total">Total: 0 SAR</p>
+
+
+<h3>Expenses by Category</h3>
+<div id="categoryStats"></div>
+
+
+<section class="chart-section">
+    <h2>Expenses by Category</h2>
+    <canvas id="expenseChart"></canvas>
+</section>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.1/chart.umd.min.js"></script>
+<script src="script.js"></script>
+</body>
+
+</html>

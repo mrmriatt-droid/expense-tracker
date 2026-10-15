@@ -1,0 +1,130 @@
+
+*{
+box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f5f3ef;
+    color: #333;
+    margin: 0;
+    padding: 30px;
+}
+
+h1{
+    text-align: center;
+    color: #5b4636;
+    margin-bottom: 30px;
+}
+
+input,select{
+padding: 10px;
+margin: 5px;
+border: 1px solid #d6cec5;
+border-radius: 8px;
+font-size: 14px;
+}
+
+button{
+    background-color: #795548;
+    color: white;
+    padding: 10px 16px;
+    margin: 5px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #5d4037;
+}
+
+/*قسم الادخال والميزانية*/
+#expenseInputArea,.budget-section{
+background-color: white;
+padding: 20px;
+margin: 20px auto;
+border-radius: 12px;
+max-width: 1000px;
+box-shadow: 0 2px 8px #00000010;;
+}
+
+#expenseList{
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+.expense-item{
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px  #00000010;
+}
+
+#total{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #5b4636;
+}
+
+/*قسم النسبة والرسم البياني */
+#categoryStats,.chart-section{
+background-color: white;
+max-width: 1000px;
+padding: 20px;
+margin: 20px auto;
+border-radius: 12px;
+box-shadow: 0 2px 8px #00000010;
+}
+
+h2,h3{
+    color: #5b4636;
+}
+
+.chart-section canvas{
+    display: block;
+    max-width: 350px;
+    margin: 0 auto;
+
+}
+
+@media (max-width: 600px){
+
+    body{
+        padding: 10px;
+    }
+
+#expenseInputArea,
+.budget-section,
+#categoryStats,
+.chart-section{
+    width: 100%;
+    padding: 12px;
+    margin: 12px auto;
+}
+
+input,select{
+width: 100%;
+margin: 5px 0;
+}
+
+    button {
+        max-width: 100%;
+        padding: 10px 12px;
+    }
+
+    .expense-item {
+        padding: 12px;
+        overflow-wrap: anywhere;
+    }
+
+    #expenseList {
+        width: 100%;
+    }
+
+    .chart-section canvas {
+        max-width: 100%;
+    }
+}
