@@ -200,25 +200,36 @@ let currentYearMonth = `${currentYear}-${currentMonth}`;
 total.textContent= `Total: ${totalAmount} SAR`;
 
 //حساب اذا تعدى الميزانية 
+/* Calculate monthly budget */
 let monthlyExpenses = expenses.filter(expense =>
-(expense.date || "").startsWith(currentYearMonth)
+    (expense.date || "").startsWith(currentYearMonth)
 );
 
-let monthlyTotal =monthlyExpenses.reduce((sum,expense) =>
-    sum + Number(expense.amount)
-,0);
+let monthlyTotal = monthlyExpenses.reduce((sum, expense) =>
+    sum + Number(expense.amount), 0
+);
 
-
-let budget = Number(localStorage.getItem("monthlyBudget"))||0;
+let savedBudget = localStorage.getItem("monthlyBudget");
+let budget = Number(savedBudget);
 let remaining = budget - monthlyTotal;
 
-if(remaining <0){
-remainingBudget.textContent=`Over budget by ${Math.abs(remaining)} SAR`;
-remainingBudget.style.color=("red");
-}else{
-remainingBudget.textContent=`Remaining: ${remaining} SAR`;
-remainingBudget.style.color=("green");
+if (savedBudget !== null && savedBudget.trim() !== "" && budget > 0) {
+    remainingBudget.textContent = remaining < 0
+        ? `Over budget by ${Math.abs(remaining)} SAR`
+        : `Remaining: ${remaining} SAR`;
+
+    remainingBudget.style.color = remaining < 0 ? "red" : "green";
+
+    budgetAlert.textContent = remaining < 0
+        ? "You exceeded your budget!"
+        : "";
+
+    budgetAlert.style.color = "red";
+} else {
+    remainingBudget.textContent = "";
+    budgetAlert.textContent = "";
 }
+
 
 
 if(remaining < 0 ){

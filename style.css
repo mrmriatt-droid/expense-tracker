@@ -90,41 +90,85 @@ h2,h3{
 
 }
 
-@media (max-width: 600px){
 
-    body{
-        padding: 10px;
+/* Mobile responsive design */
+@media (max-width: 600px) {
+    body { padding: 12px; font-size: 14px; }
+    h1 { font-size: 28px; margin-bottom: 18px; }
+    h2 { font-size: 22px; }
+
+    #expenseInputArea, .budget-section, #categoryStats, .chart-section {
+        width: 100%; max-width: 100%; padding: 14px;
+        margin: 14px auto; border-radius: 12px;
     }
 
-#expenseInputArea,
-.budget-section,
-#categoryStats,
-.chart-section{
-    width: 100%;
-    padding: 12px;
-    margin: 12px auto;
-}
+    input, select {
+        box-sizing: border-box; width: 100%; max-width: 100%;
+        min-width: 0; padding: 10px; margin: 5px 0; font-size: 14px;
+    }
 
-input,select{
-width: 100%;
-margin: 5px 0;
-}
+    input[type="date"] {
+        display: block; min-width: 0; width: 100%;
+        appearance: none; -webkit-appearance: none;
+    }
 
-    button {
-        max-width: 100%;
-        padding: 10px 12px;
+    button { padding: 9px 12px; margin: 4px; font-size: 13px; }
+
+    #expenseList {
+        width: 100%; max-width: 100%; margin: 14px auto;
     }
 
     .expense-item {
-        padding: 12px;
-        overflow-wrap: anywhere;
+        padding: 14px; margin-bottom: 12px;
+        overflow-wrap: anywhere; border-radius: 12px;
     }
 
-    #expenseList {
-        width: 100%;
+    /* Keep expense details and buttons on one line */
+    .expense-item p {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 6px;
+        white-space: nowrap;
+        overflow-x: auto;
     }
 
-    .chart-section canvas {
-        max-width: 100%;
+    .expense-item .deleteButton,
+    .expense-item .editButton {
+        flex-shrink: 0;
+        padding: 6px 8px;
+        margin: 0;
+        font-size: 12px;
+        white-space: nowrap;
     }
+
+    /* Keep edit fields and buttons on one line */
+    .expense-item .editForm {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 5px;
+        align-items: center;
+    }
+
+    .expense-item .editForm input,
+    .expense-item .editForm select {
+        flex: 1;
+        min-width: 0;
+        width: auto;
+        padding: 6px 4px;
+        margin: 0;
+        font-size: 12px;
+    }
+
+    .expense-item .editForm button {
+        flex-shrink: 0;
+        padding: 6px;
+        margin: 0;
+        font-size: 11px;
+        white-space: nowrap;
+    }
+
+    .chart-section canvas { max-width: 100%; }
 }
